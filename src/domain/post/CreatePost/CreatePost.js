@@ -1,11 +1,11 @@
 import styles from './CreatePost.module.css';
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import { useAuthValue } from '../../context/AuthContext';
-import { useInsertDocument } from '../../hooks/useInsertDocument';
 
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAuthValue } from 'context/AuthContext';
+import { useInsertDocument } from 'hooks';
 
 export const CreatePost = () => {
 
@@ -13,7 +13,7 @@ export const CreatePost = () => {
   const [ image, setImage ] = useState('');
   const [ body, setBody ] = useState('');
   const [ tags, setTags ] = useState([]);
-  const [ formError, setFormError ] = useState('');
+  const [ formError, setFormError ] = useState('')
 
   const { user } = useAuthValue()
 

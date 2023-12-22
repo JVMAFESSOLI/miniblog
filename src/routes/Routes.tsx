@@ -1,18 +1,10 @@
-import React from "react";
-import { useAuthValue } from "context/AuthContext";
-import {
-  About,
-  CreatePost,
-  Dashboard,
-  EditPost,
-  Home,
-  Login,
-  Post,
-  Register,
-  Search,
-} from "pages";
+import React from 'react';
+import { useAuthValue } from 'context/AuthContext';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { About, Dashboard, Home, Search } from 'domain/home';
+import { CreatePost, EditPost, Post } from 'domain/post';
+import { Login, Register } from 'domain/auth';
 
 export const MainRoutes = () => {
   const { user } = useAuthValue();
