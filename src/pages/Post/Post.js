@@ -1,9 +1,9 @@
+import { useFetchDocument } from 'hooks';
 import styles from './Post.module.css'
 
 import { useParams } from 'react-router-dom'
-import { useFetchDocument } from '../../hooks/useFetchDocument';
 
-const Post = () => {
+export const Post = () => {
 
     const { id } = useParams();
     const { document: post, loading } = useFetchDocument('posts', id)
@@ -26,6 +26,4 @@ const Post = () => {
         )}
     </div>
   )
-}
-
-export default Post
+};

@@ -1,28 +1,17 @@
 import React from "react";
 import "./App.css";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { User, onAuthStateChanged } from "firebase/auth";
 
-// hooks
 import { useState, useEffect } from "react";
-import { useAuthentication } from "./hooks/useAuthentication";
 
-// context
 import { AuthProvider } from "./context/AuthContext";
 
-// Pages
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Navbar from "./components/Navbar.js";
-import Footer from "./components/Footer.js";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register.js";
-import CreatePost from "./pages/CreatePost/CreatePost";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Search from "./pages/Search/Search";
-import Post from "./pages/Post/Post";
-import EditPost from "./pages/EditPost/EditPost";
+import { Navbar, Footer } from "./components";
+
+import { MainRoutes } from "routes/Routes";
+import { useAuthentication } from "hooks";
 
 function App() {
   const [user, setUser] = useState<User | null>();
@@ -46,32 +35,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/posts/:id" element={<Post />} />
-              <Route
-                path="/login"
-                element={!user ? <Login /> : <Navigate to="/" />}
-              />
-              <Route
-                path="/register"
-                element={!user ? <Register /> : <Navigate to="/" />}
-              />
-              <Route
-                path="/posts/edit/:id"
-                element={user ? <EditPost /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="/posts/create"
-                element={user ? <CreatePost /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="/dashboard"
-                element={user ? <Dashboard /> : <Navigate to="/login" />}
-              />
-            </Routes>
+            <MainRoutes />
           </div>
           <Footer />
         </BrowserRouter>

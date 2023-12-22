@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
-import { useAuthentication } from '../hooks/useAuthentication';
-import { useAuthValue } from '../context/AuthContext';
+import { useAuthValue } from '../../context/AuthContext';
 
 import styles from './Navbar.module.css';
+import { useAuthentication } from 'hooks';
 
 
-const Navbar = () => {
+export const Navbar = () => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
 
@@ -50,6 +50,4 @@ const Navbar = () => {
       </ul>
     </nav>
   )
-}
-
-export default Navbar
+};

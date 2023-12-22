@@ -1,9 +1,9 @@
+import { useAuthentication } from 'hooks';
 import styles from './Register.module.css';
 
 import { useState, useEffect } from 'react';
-import { useAuthentication } from '../../hooks/useAuthentication';
 
-const Register = () => {
+export const Register = () => {
 
   const [displayName, setDisplayName] = useState('')
   const [email, setEmail] = useState('')
@@ -98,6 +98,4 @@ const Register = () => {
       </form>
     </div>
   )
-}
-
-export default Register
+};

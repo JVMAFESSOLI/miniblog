@@ -2,12 +2,10 @@ import styles from './Home.module.css';
 
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useFetchDocuments } from '../../hooks/useFetchDocuments';
+import { PostDetail } from 'components';
+import { useFetchDocuments } from 'hooks';
 
-// components
-import PostDetail from '../../components/PostDetail';
-
-const Home = () => {
+export const Home = () => {
 
   const [ query, setQuery ] = useState('');
   const { documents: posts, loading } = useFetchDocuments("posts");
@@ -47,6 +45,4 @@ const Home = () => {
         </div>
     </div>
   )
-}
-
-export default Home
+};

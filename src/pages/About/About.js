@@ -2,7 +2,7 @@ import styles from './About.module.css';
 
 import { Link } from 'react-router-dom';
 
-const About = () => {
+export const About = () => {
   return (
     <div className={styles.about}>
        <h2>Sobre o Mini <span>Blog</span></h2>
@@ -12,6 +12,4 @@ const About = () => {
       </Link>
     </div>
   )
-}
-
-export default About
+};

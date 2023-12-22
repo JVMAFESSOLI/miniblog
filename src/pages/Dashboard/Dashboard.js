@@ -1,13 +1,10 @@
+import { useAuthValue } from 'context/AuthContext';
 import styles from './Dashboard.module.css'
 
 import { Link } from 'react-router-dom';
+import { useDeleteDocument, useFetchDocuments } from 'hooks';
 
-// hooks
-import { useAuthValue } from '../../context/AuthContext';
-import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import { useDeleteDocument } from '../../hooks/useDeleteDocument';
-
-const Dashboard = () => {
+export const Dashboard = () => {
 
   const { user } = useAuthValue()
   const uid = user.uid
@@ -59,6 +56,4 @@ const Dashboard = () => {
         
     </div>
   )
-}
-
-export default Dashboard
+};

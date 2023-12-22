@@ -1,9 +1,9 @@
+import { useAuthentication } from 'hooks';
 import styles from './Login.module.css';
 
 import { useState, useEffect } from 'react';
-import { useAuthentication } from '../../hooks/useAuthentication';
 
-const Login = () => {
+export const Login = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -68,6 +68,4 @@ const Login = () => {
       </form>
     </div>
   )
-}
-
-export default Login
+};

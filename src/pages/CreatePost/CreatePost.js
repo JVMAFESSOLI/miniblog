@@ -7,7 +7,7 @@ import { useInsertDocument } from '../../hooks/useInsertDocument';
 
 import React from 'react'
 
-const CreatePost = () => {
+export const CreatePost = () => {
 
   const [ title, setTitle ] = useState("");
   const [ image, setImage ] = useState('');
@@ -113,7 +113,4 @@ const CreatePost = () => {
         </form>
     </div>  
   )
-}
-
-export default CreatePost
-
+};
