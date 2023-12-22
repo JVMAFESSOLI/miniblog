@@ -1,24 +1,25 @@
-import styles from './Home.module.css';
+import React from "react";
 
-import { useNavigate, Link } from 'react-router-dom';
-import { useState } from 'react';
-import { PostDetail } from 'components';
-import { useFetchDocuments } from 'hooks';
+import styles from "./Home.module.css";
+
+import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { PostDetail } from "components";
+import { useFetchDocuments } from "hooks";
 
 export const Home = () => {
-
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const { documents: posts, loading } = useFetchDocuments("posts");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (query) {
-      return navigate(`/search?q=${query}`)
+      return navigate(`/search?q=${query}`);
     }
-  }
+  };
 
   return (
     <div className={styles.home}>
@@ -44,5 +45,5 @@ export const Home = () => {
         )}
       </div>
     </div>
-  )
+  );
 };

@@ -1,4 +1,6 @@
-import styles from './Footer.module.css';
+import React from "react";
+
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
   return (
@@ -6,6 +8,5 @@ export const Footer = () => {
       <h3>Escreva sobre o que você tem interesse!</h3>
       <p>Mini Blog &copy; 2022</p>
     </footer>
-    
-  )
-}
+  );
+};
