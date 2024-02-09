@@ -1,17 +1,17 @@
 import React from "react";
 
-import { useFetchDocument } from "hooks";
-import styles from "./Post.module.css";
-
+import { useGetPosts } from "hooks";
 import { useParams } from "react-router-dom";
+
+import styles from "./Post.module.css";
 
 export const Post = () => {
   const { id } = useParams();
-  const { document: post, loading } = useFetchDocument("posts", id);
+  const { data: post, isLoading } = useGetPosts("posts", id || "");
 
   return (
     <div className={styles.post_container}>
-      {loading && <p>Carregando post...</p>}
+      {isLoading && <p>Carregando post...</p>}
       {post && (
         <>
           <h1>{post.title}</h1>

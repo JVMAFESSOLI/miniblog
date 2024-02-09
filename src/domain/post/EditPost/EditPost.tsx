@@ -3,13 +3,13 @@ import React from "react";
 import styles from "./Edit.Post.module.css";
 
 import { useEffect, useState } from "react";
+import { useGetPosts, useUpdateDocument } from "hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../../context/AuthContext";
-import { useFetchDocument, useUpdateDocument } from "hooks";
 
 export const EditPost = () => {
   const { id } = useParams();
-  const { document: post } = useFetchDocument("posts", id);
+  const { data: post } = useGetPosts("posts", id || "");
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");

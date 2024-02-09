@@ -1,9 +1,15 @@
 import React from "react";
-import styles from "./PostDetail.module.css";
 
 import { Link } from "react-router-dom";
+import { Post } from "domain/post/types";
 
-export const PostDetail = ({ post }) => {
+import styles from "./PostDetail.module.css";
+
+type PostDetailProps = {
+  post: Post;
+};
+
+export const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
   return (
     <div className={styles.post_detail}>
       <img src={post.image} alt={post.title} />
